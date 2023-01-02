@@ -16,7 +16,7 @@ interface Props {
 
 const Home = ({ tweets }: Props) => {
   console.log(tweets);
-  TimeAgo.addDefaultLocale(en);
+  TimeAgo.addLocale(en);
   TimeAgo.addLocale(ru);
 
   return (

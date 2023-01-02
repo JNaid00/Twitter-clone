@@ -15,7 +15,7 @@ function Widgets() {
     <div className="mt-2 px-2 col-span-3 hidden lg:inline ">
       <form
         onSubmit={handleSubmit}
-        className="flex items-center space-x-2 bg-slate-600 p-3 rounded-full mt-2"
+        className="flex items-center space-x-2 bg-slate-600 p-3 rounded-full my-2"
       >
         <SearchIcon className="h-5 w-5 text-gray-400 cursor-pointer" />
         <input

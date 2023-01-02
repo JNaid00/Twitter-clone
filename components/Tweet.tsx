@@ -8,7 +8,7 @@ import {
   UploadIcon,
 } from "@heroicons/react/outline";
 import { fetchComments } from "../utils/fetchComments";
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 import { toast } from "react-hot-toast";
 interface Props {
   tweet: Tweet;
@@ -21,7 +21,7 @@ function Tweet({ tweet }: Props) {
   const [count3, setCount3] = useState(0);
   const [count4, setCount4] = useState(0);
   const [comments, setComments] = useState<Comment[]>([]);
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   const refreshComments = async () => {
     const comments: Comment[] = await fetchComments(tweet._id);
     setComments(comments);
@@ -31,7 +31,7 @@ function Tweet({ tweet }: Props) {
     refreshComments();
   }, []);
   const tryPostComment = () => {
-    if (session) {
+    if (false) {
       setcommentBoxVisible(!commentBoxVisible);
     } else {
       toast.error("Please Sign In first");
@@ -45,8 +45,8 @@ function Tweet({ tweet }: Props) {
     const commentInfo: CommentBody = {
       comment: input,
       tweetId: tweet._id,
-      username: session?.user?.name || "Unknown User",
-      profileImg: session?.user?.image || "https://links.papareact.com/gll",
+      username:  "Unknown User",
+      profileImg: "https://links.papareact.com/gll",
     };
     const result = await fetch(`/api/addComments`, {
       body: JSON.stringify(commentInfo),
@@ -80,7 +80,7 @@ function Tweet({ tweet }: Props) {
             </p>
             <div className="text-sm text-gray-500">
               {/* <TimeAgoTest date={tweet._createdAt} /> */}
-			  <ReactTimeAgo date={new Date(tweet._createdAt)} />
+			  {/* <ReactTimeAgo date={new Date(tweet._createdAt)} /> */}
             </div>
           </div>
           <p className="pt-1">{tweet.text}</p>
