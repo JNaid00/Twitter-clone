@@ -7,7 +7,7 @@ import {
   SearchCircleIcon,
 } from "@heroicons/react/outline";
 
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 import { Tweet, TweetBody } from "../typings";
 import { fetchTweets } from "../utils/fetchTweets";
 import { toast } from "react-hot-toast";
@@ -18,7 +18,7 @@ interface Props{
 
 }
 function TweetBox({setTweets} : Props) {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
 
   const [input, setInput] = useState("");
   const [imageTweet, setImageNow] = useState<string>("");
@@ -39,11 +39,13 @@ function TweetBox({setTweets} : Props) {
     imageInputRef.current.value = "";
     setImage(false);
   };
+  //session?.user?.name ||
+  // session?.user?.image ||
   const postTweet = async () => {
     const tweetInfo: TweetBody = {
       text: input,
-      username: session?.user?.name || "Unknown User", 
-      profileImg: session?.user?.image || "https://links.papareact.com/gll",
+      username:  "Unknown User", 
+      profileImg: "https://links.papareact.com/gll",
       image: imageTweet,
     };
 
@@ -75,7 +77,7 @@ function TweetBox({setTweets} : Props) {
   return (
     <div className="flex space-x-2 p-5">
       <img
-        src={session?.user?.image || "https://links.papareact.com/gll"}
+        src={"https://links.papareact.com/gll"}
         alt=""
         className="mt-4 h-14 w-14 rounded-full object-cover"
       />

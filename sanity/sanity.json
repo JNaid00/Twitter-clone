@@ -1,11 +1,11 @@
 {
   "root": true,
-  "project": {
-    "name": "twitter_sanity"
-  },
   "api": {
     "projectId": "icu5bh1f",
     "dataset": "production"
+  },
+  "project": {
+    "name": "twitter_sanity"
   },
   "plugins": [
     "@sanity/base",
